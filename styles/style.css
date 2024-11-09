@@ -1,0 +1,491 @@
+@import "font.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  color: white;
+  text-wrap: balance;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+img {
+  vertical-align: middle;
+}
+
+body.active {
+  overflow: hidden;
+}
+
+a,
+span {
+  display: inline-block;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.container {
+  max-width: 1830px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  position: relative;
+}
+
+.header_bg {
+  width: 100%;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0 25px;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 11, 11, 0.7) 35.462%,
+    rgba(11, 11, 11, 0.35) 127.269%,
+    rgba(11, 11, 11, 0) 133.23%
+  );
+  z-index: 9999;
+}
+
+.nav_left {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+
+.nav_link {
+  font: 600 clamp(16px, 3vw, 20px) / 24px Inter;
+  &::first-letter {
+    color: rgb(68, 68, 255);
+  }
+}
+
+.user::before {
+  content: "\f007";
+  font-style: normal;
+  font-size: 20px;
+}
+
+.nav_right {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav_input {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+  width: clamp(100px, 24vw, 438px);
+  padding: 10px 100px;
+  &::placeholder {
+    color: white;
+    font: 500 clamp(11px, 2vw, 20px) / 24px Inter;
+    text-align: center;
+  }
+}
+
+.nav_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_btn {
+  width: 40px;
+  height: 40px;
+  transition: 0.3s;
+  position: relative;
+  background: transparent;
+  display: none;
+}
+
+.nav_span,
+.nav_span::before,
+.nav_span::after {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: purple;
+  transition: 0.3s;
+}
+
+.nav_span::before,
+.nav_span::after {
+  content: "";
+  display: block;
+  transition: 0.3s;
+}
+
+.nav_span::before {
+  top: -8px;
+}
+
+.nav_span::after {
+  top: 8px;
+}
+
+.nav_btn.active .nav_span {
+  background: transparent;
+}
+
+.nav_btn.active .nav_span::before {
+  background: white;
+  transform: rotate(45deg) translate(6px, 5px);
+}
+
+.nav_btn.active .nav_span::after {
+  background: white;
+  transform: rotate(-45deg) translate(6px, -5px);
+}
+
+.nav_bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.613);
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 11, 11, 0.7) 35.462%,
+    rgba(11, 11, 11, 0.35) 127.269%,
+    rgba(11, 11, 11, 0) 133.23%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.bg_span {
+  font: 500 clamp(13px, 2vw, 18px) / 156% Montserrat;
+}
+
+.bg_title {
+  font: 600 clamp(20px, 5vw, 75px) / clamp(30px, 5vw, 91px) Montserrat;
+  max-width: 874px;
+  margin: 10px 0 40px;
+}
+
+.bg_text {
+  color: rgb(208, 208, 208);
+  font: 600 clamp(15px, 2vw, 18px) / 156% Montserrat;
+  max-width: 530px;
+  margin-bottom: 65px;
+}
+
+.bg_btns {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.bg_btn {
+  font: 600 clamp(15px, 2vw, 20px) / 156% Montserrat;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 100px;
+  border: 3px solid transparent;
+  transition: 0.3s;
+  &:hover {
+    border: 3px solid rgb(51, 173, 223);
+  }
+}
+
+/* anime */
+
+.anime {
+  background: url(../images/anime_bg.png) no-repeat center / cover;
+  padding: 120px 0;
+}
+
+.anime_heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.anime_title {
+  font: 600 clamp(20px, 3vw, 30px) / 37px Montserrat;
+  border-bottom: 2px solid #1da1f2;
+  padding-bottom: 4px;
+}
+
+.anime_link {
+  font: 600 clamp(15px, 2vw, 20px) / 24px Montserrat;
+}
+
+.anime_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.anime_item {
+  max-width: 257px;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.anime_hover {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(90deg, rgb(16, 16, 16), rgba(0, 0, 0, 0.9) 100%);
+  height: 60px;
+  padding: 15px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: 1s;
+  text-align: center;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.anime_hover-title {
+  font: 600 clamp(18px, 2vw, 22px) / 30px Montserrat;
+
+  span {
+    color: transparent;
+    background: linear-gradient(180deg, #dc781c, #c93677) text;
+  }
+}
+
+.anime_hover-text {
+  font: 400 clamp(13px, 3vw, 16px) Montserrat;
+}
+
+.anime_item:hover .anime_hover {
+  height: 50%;
+}
+
+.anime_heading:nth-of-type(3) {
+  margin-top: 100px;
+}
+
+.section_bg {
+  background: url(../images/section_bg.png) no-repeat center / cover;
+}
+
+/* trailer */
+
+.trailer,
+.upcoming {
+  position: relative;
+  padding: 60px 0 110px;
+}
+
+.trailer::before {
+  content: "";
+  height: 3px;
+  background: linear-gradient(to right, #143562, #dc1c84);
+  position: absolute;
+  top: -1.5px;
+  left: 0;
+  right: 0;
+}
+
+.trailer_left {
+  position: relative;
+  height: max-content;
+}
+
+video {
+  max-width: 1110px;
+  width: 100%;
+  height: 533px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.video_bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: linear-gradient(
+    91.65deg,
+    rgba(0, 0, 0, 0.44) -38.718%,
+    rgba(0, 0, 0, 0.33) 99.689%
+  );
+  pointer-events: none;
+}
+
+.trailer_about {
+  max-width: 575px;
+}
+
+.trailer_about-title {
+  font: 700 clamp(24px, 4vw, 55px) / clamp(30px, 5vw, 67px) Montserrat;
+}
+
+.trailer_about-span {
+  font: 700 clamp(16px, 3vw, 30px) / 37px Montserrat;
+  margin: 9px 0 43px;
+}
+
+.trailer_about-text {
+  font: 600 clamp(13px, 2vw, 18px) / 156.4% Montserrat;
+  margin-bottom: 70px;
+}
+
+.trailer_content {
+  display: flex;
+  gap: 50px;
+}
+
+/* upcoming */
+
+.upcoming::before,
+.upcoming::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.upcoming::before {
+  background: linear-gradient(to right, #9747ff, #f22323);
+  top: -1.5px;
+}
+
+.upcoming::after {
+  background: linear-gradient(to right, #dc781c, #c93677);
+  bottom: -1.5px;
+}
+
+.upcoming_cards {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  gap: 60px;
+}
+
+.upcoming_about {
+  max-width: 410px;
+  width: 100%;
+}
+
+.upcoming_title {
+  font: 700 clamp(24px, 2vw, 40px) / 49px Montserrat;
+}
+
+.upcoming_text {
+  font: 600 clamp(13px, 2vw, 18px) / 22px Montserrat;
+}
+
+.upcoming_btns {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin: 36px 0;
+}
+
+.upcoming_btn {
+  padding: 10px 15px;
+  border-radius: 25px;
+  font: 600 clamp(16px, 2vw, 18px) / 22px Montserrat;
+  color: transparent;
+  background: linear-gradient(180deg, rgb(220, 120, 28), rgb(201, 54, 119)) text;
+  border: 2px solid #143562;
+}
+
+.footer {
+  background: url(../images/Group\ 17.png);
+  padding: 125px 0 95px;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer_card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer_title {
+  font: 600 clamp(16px, 2vw, 25px) / 182% Montserrat;
+}
+
+.footer_link {
+  font: 600 clamp(16px, 2vw, 20px) / 182% Montserrat;
+}
+
+.footer_list li {
+  list-style: disc;
+}
+
+.footer_list {
+  margin-left: 16px;
+}
+
+.footer_socials {
+  display: flex;
+  gap: 25px;
+  margin-top: 50px;
+}
+
+.insta::before {
+  content: "\f16d";
+}
+
+.tw::before {
+  content: "\f099";
+}
+
+.insta,
+.tw {
+  font-style: normal;
+  font-size: 30px;
+  color: #1da1f2;
+}
+
+.insta {
+  color: transparent;
+  background: linear-gradient(#9747ff, #cf427b, #bd5d05, #f22323) text;
+}
